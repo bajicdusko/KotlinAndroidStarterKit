@@ -7,7 +7,7 @@ import org.joda.time.DateTime
  * Created by Dusko Bajic on 10.06.17.
  * GitHub @bajicdusko
  */
-class SOQuestionData(
+data class SOQuestionData(
         val tags: List<String>?,
         @SerializedName("owner") val ownerData: OwnerData,
         val isAnswered: Boolean,

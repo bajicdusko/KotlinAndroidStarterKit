@@ -6,7 +6,7 @@ import org.joda.time.DateTime
  * Created by Dusko Bajic on 09.06.17.
  * GitHub @bajicdusko
  */
-class SOQuestion(
+data class SOQuestion(
         val tags: MutableList<String>?,
         val owner: Owner,
         val isAnswered: Boolean,
