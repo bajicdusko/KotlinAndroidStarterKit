@@ -1,0 +1,86 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+kapt {
+    generateStubs = true
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "domain", "\"stackexchange.com/\""
+        buildConfigField "String", "apiVersion", "\"2.2/\""
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    publishNonDefault true
+
+    flavorDimensions "env"
+
+    productFlavors {
+        dev {
+            dimension "env"
+            buildConfigField "String", "env", "\"https://api.\""
+        }
+        qa {
+            dimension "env"
+            buildConfigField "String", "env", "\"https://api.\""
+        }
+        production {
+            dimension "env"
+            buildConfigField "String", "env", "\"https://api.\""
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestApi('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    api 'com.android.support:appcompat-v7:25.3.1'
+    testApi 'junit:junit:4.12'
+
+    api 'com.google.dagger:dagger:2.11'
+    kapt 'com.google.dagger:dagger-compiler:2.11'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+
+    api 'com.google.code.gson:gson:2.8.0'
+    api 'com.squareup.retrofit2:retrofit:2.2.0'
+    api 'com.squareup.retrofit2:converter-gson:2.2.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+
+    api 'org.parceler:parceler-api:1.1.8'
+    annotationProcessor 'org.parceler:parceler:1.1.8'
+
+    api 'com.jakewharton.timber:timber:4.5.1'
+
+    api 'org.mockito:mockito-core:2.7.22'
+    api 'org.mockito:mockito-android:2.7.22'
+
+    api project(':domain')
+}
