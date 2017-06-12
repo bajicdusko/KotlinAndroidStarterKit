@@ -18,7 +18,7 @@ Common
 - [![Dagger2](https://img.shields.io/badge/Dagger2-2.9-green.svg)](https://github.com/google/dagger)
 - [![JodaTime](https://img.shields.io/badge/JodaTime-2.9.7-green.svg)](https://github.com/JodaOrg/joda-time)
 - [![Timber](https://img.shields.io/badge/Timber-4.5.1-green.svg)](https://github.com/JakeWharton/timber)
-~~- [![LeakCannary](https://img.shields.io/badge/LeakCannary-1.5.1-green.svg)](https://github.com/square/leakcanary)~~
+- [![LeakCannary](https://img.shields.io/badge/LeakCannary-1.5.1-green.svg)](https://github.com/square/leakcanary) (not yet included)
 - [![Parceler](https://img.shields.io/badge/Parceler-1.1.8-green.svg)](https://github.com/johncarl81/parceler)
 
 Network
@@ -29,13 +29,13 @@ Network
 View
 - [![RxBinding](https://img.shields.io/badge/RxBinding-2.0.0-green.svg)](https://github.com/JakeWharton/RxBinding)
 - [![ButterKnife](https://img.shields.io/badge/ButterKnife-8.5.1-green.svg)](https://github.com/JakeWharton/butterknife)
-~~- [![PermissionDispatcher](https://img.shields.io/badge/PermissionDispatcher-2.3.2-green.svg)](https://github.com/hotchemi/PermissionsDispatcher)~~
+- [![PermissionDispatcher](https://img.shields.io/badge/PermissionDispatcher-2.3.2-green.svg)](https://github.com/hotchemi/PermissionsDispatcher) (not yet included)
 - [![ConstraintLayout](https://img.shields.io/badge/ConstraintLayout-1.0.2-green.svg)](https://developer.android.com/training/constraint-layout/index.html)
-~~- [![Calligraphy](https://img.shields.io/badge/Calligraphy-2.2.0-green.svg)](https://github.com/chrisjenx/Calligraphy)~~
+- [![Calligraphy](https://img.shields.io/badge/Calligraphy-2.2.0-green.svg)](https://github.com/chrisjenx/Calligraphy) (not yet included)
 
 Testing
 - [![Mockito](https://img.shields.io/badge/Mockito-2.7.22-green.svg)](https://github.com/mockito/mockito)
-~~- [![Robolectric](https://img.shields.io/badge/Robolectric-3.3.2-green.svg)](https://github.com/robolectric/robolect
+- [![Robolectric](https://img.shields.io/badge/Robolectric-3.3.2-green.svg)](https://github.com/robolectric/robolectric) (not yet included)
 
 Crash Reports
 - [![Crashlytics](https://img.shields.io/badge/Crashlytics-2.6.8-green.svg)](https://fabric.io/kits/android/crashlytics)
