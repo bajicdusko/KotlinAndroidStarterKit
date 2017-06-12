@@ -24,7 +24,7 @@ class QuestionsPresenter @Inject constructor() : FragmentPresenter {
             getQuestions.execute(ANDROID_TAG)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ view?.showData(it) }, { view?.handleError(it) })
+                    .subscribe({ view?.showData(it) }, { view?.handleError(it, "On Questions Loading") })
         })
     }
 
@@ -36,6 +36,6 @@ class QuestionsPresenter @Inject constructor() : FragmentPresenter {
 
     interface View : FragmentPresenter.View {
         fun showData(list: List<SOQuestion?>?)
-        fun handleError(throwable: Throwable?)
+        fun handleError(throwable: Throwable?, location: String?)
     }
 }

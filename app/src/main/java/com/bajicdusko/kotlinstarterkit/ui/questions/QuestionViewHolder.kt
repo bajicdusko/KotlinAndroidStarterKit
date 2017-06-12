@@ -8,6 +8,7 @@ import com.bajicdusko.kotlinstarterkit.di.adapter.AdapterComponent
 import com.bajicdusko.kotlinstarterkit.presenter.questions.QuestionViewHolderPresenter
 import com.bajicdusko.kotlinstarterkit.presenter.questions.QuestionsAdapterPresenter
 import com.bajicdusko.kotlinstarterkit.ui.adapter.BaseViewHolder
+import com.bajicdusko.kotlinstarterkit.ui.asHtml
 import javax.inject.Inject
 
 /**
@@ -28,11 +29,12 @@ class QuestionViewHolder(view: View, adapterComponent: AdapterComponent, questio
 
     init {
         adapterComponent.inject(this)
+        questionViewHolderPresenter.view = this
         questionViewHolderPresenter.adapterPresenter = questionsAdapterPresenter
     }
 
     override fun setTitle(title: String?) {
-        tvTitle.text = title
+        tvTitle.text = title.asHtml()
     }
 
     override fun setQuestionUrl(questionUrl: String?) {

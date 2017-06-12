@@ -18,6 +18,6 @@ data class SOQuestionData(
         val lastEditDate: DateTime?,
         val creationDate: DateTime?,
         val questionId: Long,
-        val questionUrl: String,
+        @SerializedName("link") val questionUrl: String,
         val title: String
 )

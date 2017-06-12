@@ -9,9 +9,10 @@ import android.view.ViewGroup
 import butterknife.ButterKnife
 import com.bajicdusko.kotlinstarterkit.data.getErrorMessage
 import com.bajicdusko.kotlinstarterkit.ui.BaseActivity
+import com.bajicdusko.kotlinstarterkit.ui.rxDispose
 import com.bajicdusko.kotlinstarterkit.ui.toast
+import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber
-import java.util.*
 
 /**
  * Created by Dusko Bajic on 07.06.17.
@@ -21,6 +22,7 @@ abstract class BaseFragment : Fragment(), IFragment {
 
     protected var fragmentChannel: FragmentChannel? = null
     protected var isNewInstance: Boolean = true
+    var disposables: CompositeDisposable? = null
 
     protected val injector by lazy { (context as BaseActivity).injector }
 
@@ -53,7 +55,16 @@ abstract class BaseFragment : Fragment(), IFragment {
         return view
     }
 
-    fun handleError(throwable: Throwable?) {
+    fun handleError(throwable: Throwable?, location: String?) {
+        Timber.e(throwable, location)
         toast(throwable?.getErrorMessage())
+    }
+
+    fun handleError(throwable: Throwable?) {
+        handleError(throwable = throwable, location = null)
+    }
+
+    override fun dispose() {
+        rxDispose()
     }
 }

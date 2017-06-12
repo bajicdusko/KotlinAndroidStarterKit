@@ -1,12 +1,13 @@
 package com.bajicdusko.kotlinstarterkit.ui.questions
 
 import android.os.Bundle
-import android.support.v7.widget.RecyclerView
+import android.view.View
 import butterknife.BindView
 import com.bajicdusko.kotlinstarterkit.R
 import com.bajicdusko.kotlinstarterkit.domain.model.SOQuestion
 import com.bajicdusko.kotlinstarterkit.presenter.questions.QuestionsPresenter
 import com.bajicdusko.kotlinstarterkit.ui.fragment.BaseFragment
+import com.bajicdusko.kotlinstarterkit.ui.view.DefaultRecyclerView
 import javax.inject.Inject
 
 /**
@@ -14,12 +15,16 @@ import javax.inject.Inject
  * GitHub @bajicdusko
  */
 class QuestionsFragment : BaseFragment(), QuestionsPresenter.View {
-    private val FRAGMENT_NAME = "Questions"
+
+    companion object {
+        fun newInstance() = QuestionsFragment()
+    }
 
     @Inject lateinit var questionsPresenter: QuestionsPresenter
 
-    @BindView(R.id.fragment_question_rv_main) lateinit var rvMain: RecyclerView
+    @BindView(R.id.fragment_question_rv_main) lateinit var rvMain: DefaultRecyclerView
 
+    private val FRAGMENT_NAME = "Questions"
     private val questionsAdapter by lazy { QuestionsAdapter(injector) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +32,10 @@ class QuestionsFragment : BaseFragment(), QuestionsPresenter.View {
         retainInstance = true
         injector.inject(this)
         questionsPresenter.view = this
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {

@@ -1,30 +1,16 @@
 package com.bajicdusko.kotlinstarterkit.ui.fragment.manager
 
+import org.parceler.Parcel
+
 
 /**
  * Created by Dusko Bajic on 07.06.17.
  * GitHub @bajicdusko
  */
-@org.parceler.Parcel(org.parceler.Parcel.Serialization.BEAN)
-class FragmentTagStack {
+@Parcel(Parcel.Serialization.BEAN)
+class FragmentTagStack constructor(var tags: MutableList<String> = ArrayList<String>(), var activeTag: String? = null) {
 
     @Transient private var showLogs: Boolean = false
-
-    var tags: MutableList<String>
-        private set
-
-    var activeTag: String? = null
-        private set
-
-    constructor(){
-        tags = java.util.LinkedList()
-    }
-
-    @org.parceler.ParcelConstructor
-    constructor(tags: MutableList<String>, activeTag: String) {
-        this.tags = tags
-        this.activeTag = activeTag
-    }
 
     /**
      * Enabling or disabling fragment stack logs. Logs are disabled by default.

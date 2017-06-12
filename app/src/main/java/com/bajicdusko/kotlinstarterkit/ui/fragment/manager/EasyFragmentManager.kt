@@ -11,12 +11,13 @@ import org.parceler.Parcels
  * Created by Dusko Bajic on 07.06.17.
  * GitHub @bajicdusko
  */
+
 class EasyFragmentManager(private val fragmentManager: FragmentManager, private val fragmentContainerId: Int) {
 
     private val KEY_TAGS = "key_tags"
     private var fragmentTagStack: FragmentTagStack = FragmentTagStack()
 
-    constructor(fragmentManager: FragmentManager, fragmentContainer: FrameLayout) : this(fragmentManager, fragmentContainer.id){
+    constructor(fragmentManager: FragmentManager, fragmentContainer: FrameLayout) : this(fragmentManager, fragmentContainer.id) {
         fragmentTagStack.setShowLogs(true)
     }
 

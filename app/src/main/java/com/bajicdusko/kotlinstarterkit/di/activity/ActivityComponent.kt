@@ -2,6 +2,7 @@ package com.bajicdusko.kotlinstarterkit.di.activity
 
 import com.bajicdusko.kotlinstarterkit.di.adapter.AdapterComponent
 import com.bajicdusko.kotlinstarterkit.ui.HomeActivity
+import com.bajicdusko.kotlinstarterkit.ui.fragment.auth.LoginFragment
 import com.bajicdusko.kotlinstarterkit.ui.questions.QuestionsFragment
 import dagger.Subcomponent
 
@@ -23,4 +24,5 @@ interface ActivityComponent {
 
     fun inject(homeActivity: HomeActivity)
     fun inject(questionsFragment: QuestionsFragment)
+    fun inject(loginFragment: LoginFragment)
 }

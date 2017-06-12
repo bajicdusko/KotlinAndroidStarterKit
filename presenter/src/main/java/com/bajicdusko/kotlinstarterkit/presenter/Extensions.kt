@@ -1,6 +1,5 @@
 package com.bajicdusko.kotlinstarterkit.presenter
 
-import io.reactivex.Flowable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
@@ -21,5 +20,6 @@ fun Presenter.rxDispose(){
 }
 
 inline fun Presenter.rxTransaction(subscription: () -> Disposable){
+    initDisposables()
     disposables.add(subscription())
 }

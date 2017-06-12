@@ -5,16 +5,12 @@ import com.bajicdusko.kotlinstarterkit.data.save
 import com.bajicdusko.kotlinstarterkit.domain.EMPTY_STRING
 import com.bajicdusko.kotlinstarterkit.domain.repository.CacheRepository
 import com.google.gson.Gson
-import javax.inject.Inject
 
 /**
  * Created by Dusko Bajic on 10.06.17.
  * GitHub @bajicdusko
  */
-class CacheRepositoryData @Inject constructor() : CacheRepository {
-
-    @Inject lateinit var sharedPreferences: SharedPreferences
-    @Inject lateinit var gson: Gson
+class CacheRepositoryData(val sharedPreferences: SharedPreferences, val gson: Gson) : CacheRepository {
 
     private val KEY_USERNAME = "key_username"
     private val KEY_PASSWORD = "key_password"

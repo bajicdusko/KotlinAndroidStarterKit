@@ -41,16 +41,20 @@ class DateTimeAdapter : TypeAdapter<DateTime>() {
     }
 
     override fun read(`in`: JsonReader?): DateTime {
-        var millis = DateTime.now().millis
         var jsonToken = `in`?.peek()
         if (jsonToken == JsonToken.NUMBER) {
-            try {
-                return millis.toDateTimeFromMillis(1000) //nanos used used on StackOverflow
-            } catch(e: Exception) {
-                throw DateParsingException(millis, e)
+            var millis = `in`?.nextLong()
+            if (millis != null) {
+                try {
+                    return millis.toDateTimeFromMillis(1000) //nanos used used on StackOverflow
+                } catch(e: Exception) {
+                    throw DateParsingException(millis, e)
+                }
+            } else {
+                throw DateParsingException("Error occurred on date reading from the JSON.")
             }
         }
 
-        throw DateParsingException("Excpected a number value. Instead $jsonToken used.")
+        throw DateParsingException("Expected a number value. Instead $jsonToken used.")
     }
 }

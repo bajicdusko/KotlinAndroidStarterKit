@@ -27,4 +27,6 @@ class ApiModule {
             .create()
 
     @Provides fun provideApiFactory(gson: Gson, cacheRepository: CacheRepository) = ApiFactory(gson, cacheRepository)
+
+    @Provides fun provideQuestionsApi(apiFactory: ApiFactory) = apiFactory.createQuestionsApi()
 }

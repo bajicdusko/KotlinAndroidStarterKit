@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.bajicdusko.kotlinstarterkit.domain.model.SOQuestion
 import com.bajicdusko.kotlinstarterkit.presenter.Presenter
 import io.reactivex.disposables.CompositeDisposable
-import java.util.ArrayList
+import java.util.*
 import javax.inject.Inject
 
 /**
@@ -14,7 +14,7 @@ import javax.inject.Inject
 class QuestionsAdapterPresenter @Inject constructor() : Presenter {
 
     private var questions: List<SOQuestion?> = ArrayList()
-    private var view: View? = null
+    var view: View? = null
 
     override var disposables: CompositeDisposable = CompositeDisposable()
 

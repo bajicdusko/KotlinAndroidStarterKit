@@ -19,6 +19,7 @@ class QuestionsAdapter(activityComponent: ActivityComponent) :
 
     init {
         injector.inject(this)
+        questionsAdapterPresenter.view = this
     }
 
     override fun dispose() {

@@ -8,6 +8,7 @@ import com.bajicdusko.kotlinstarterkit.presenter.HomePresenter
 import com.bajicdusko.kotlinstarterkit.ui.fragment.FragmentChannel
 import com.bajicdusko.kotlinstarterkit.ui.fragment.auth.LoginFragment
 import com.bajicdusko.kotlinstarterkit.ui.fragment.manager.EasyFragmentManager
+import com.bajicdusko.kotlinstarterkit.ui.questions.QuestionsFragment
 import javax.inject.Inject
 
 /**
@@ -49,7 +50,7 @@ class HomeActivity : BaseActivity(), HomePresenter.View, FragmentChannel {
     }
 
     override fun showHome() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        easyFragmentManager.replaceFragment(QuestionsFragment.newInstance())
     }
 
     override fun showLogin() {
