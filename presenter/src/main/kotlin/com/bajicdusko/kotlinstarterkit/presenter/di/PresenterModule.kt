@@ -1,6 +1,5 @@
 package com.bajicdusko.kotlinstarterkit.presenter.di
 
-import com.bajicdusko.kotlinstarterkit.data.di.ApiModule
 import com.bajicdusko.kotlinstarterkit.data.di.DataModule
 import dagger.Module
 

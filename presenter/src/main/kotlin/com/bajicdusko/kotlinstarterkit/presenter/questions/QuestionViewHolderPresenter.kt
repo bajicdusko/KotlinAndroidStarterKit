@@ -1,9 +1,6 @@
 package com.bajicdusko.kotlinstarterkit.presenter.questions
 
-import android.os.Bundle
-import com.bajicdusko.kotlinstarterkit.presenter.Presenter
 import com.bajicdusko.kotlinstarterkit.presenter.ViewHolderPresenter
-import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 /**
