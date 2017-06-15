@@ -1,15 +1,15 @@
 package com.bajicdusko.kotlinstarterkit.ui
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import butterknife.ButterKnife
+import com.bajicdusko.fragmentmanager.SFMActivity
 import com.bajicdusko.kotlinstarterkit.MyApplication
 
 /**
  * Created by Dusko Bajic on 28.05.17.
  * GitHub @bajicdusko
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : SFMActivity() {
 
     abstract fun inject()
     abstract fun getLayoutId(): Int

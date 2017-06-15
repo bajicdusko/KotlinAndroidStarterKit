@@ -70,7 +70,7 @@ class QuestionsFragment : BaseFragment(), QuestionsPresenter.View {
 
     override fun getFragmentName(): String = FRAGMENT_NAME
 
-    override fun setTitle(): Unit? = fragmentChannel?.setTitle(R.string.questions)
+    override fun setTitle(): Unit? = fragmentChannel?.setToolbarTitle(R.string.questions)
 
     override fun dispose() = questionsPresenter.dispose()
 

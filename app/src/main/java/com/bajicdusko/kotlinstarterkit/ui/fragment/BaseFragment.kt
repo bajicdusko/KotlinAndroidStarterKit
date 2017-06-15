@@ -1,12 +1,11 @@
 package com.bajicdusko.kotlinstarterkit.ui.fragment
 
-import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import butterknife.ButterKnife
+import com.bajicdusko.fragmentmanager.SFMFragment
 import com.bajicdusko.kotlinstarterkit.data.getErrorMessage
 import com.bajicdusko.kotlinstarterkit.ui.BaseActivity
 import com.bajicdusko.kotlinstarterkit.ui.rxDispose
@@ -18,9 +17,8 @@ import timber.log.Timber
  * Created by Dusko Bajic on 07.06.17.
  * GitHub @bajicdusko
  */
-abstract class BaseFragment : Fragment(), IFragment {
+abstract class BaseFragment : SFMFragment<HomeFragmentChannel>() {
 
-    protected var fragmentChannel: FragmentChannel? = null
     protected var isNewInstance: Boolean = true
     var disposables: CompositeDisposable? = null
 
@@ -28,23 +26,9 @@ abstract class BaseFragment : Fragment(), IFragment {
 
     protected abstract fun getLayoutId(): Int
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        if (context is FragmentChannel) {
-            fragmentChannel = context
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isNewInstance = savedInstanceState == null
-        if (parentFragment != null && parentFragment is FragmentChannel) {
-            fragmentChannel = parentFragment as FragmentChannel
-        }
-
-        if (fragmentChannel == null) {
-            Timber.d("Parent does not implement FragmentChannel")
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {

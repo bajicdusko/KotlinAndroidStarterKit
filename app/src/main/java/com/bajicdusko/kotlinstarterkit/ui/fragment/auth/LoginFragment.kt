@@ -107,7 +107,7 @@ class LoginFragment : BaseFragment(), LoginPresenter.View {
 
     override fun getFragmentName(): String = FRAGMENT_NAME
 
-    override fun setTitle() = fragmentChannel?.setTitle(R.string.login)
+    override fun setTitle() = fragmentChannel?.setToolbarTitle(R.string.login)
 
     override fun dispose() {
         super.dispose()

@@ -86,6 +86,8 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
 
+    implementation 'com.bajicdusko:fragment-manager:1.0.2'
+
     implementation 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     kapt 'com.jakewharton:butterknife-compiler:8.5.1'
