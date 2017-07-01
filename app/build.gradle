@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
 
     defaultConfig {
-        applicationId "com.bajicdusko.androidstarterkit"
+        applicationId "com.pastecan"
         minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
@@ -68,7 +69,7 @@ android {
         release {
             debuggable false
             zipAlignEnabled true
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
@@ -82,34 +83,28 @@ dependencies {
     androidTestApi('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:appcompat-v7:25.3.1'
-    implementation 'com.android.support:support-v4:25.1.1'
-    implementation 'com.android.support:design:25.3.1'
+    implementation 'com.android.support:appcompat-v7:25.4.0'
+    implementation 'com.android.support:support-v4:25.4.0'
+    implementation 'com.android.support:design:25.4.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
 
-    implementation 'com.bajicdusko:fragment-manager:1.0.2'
+    implementation 'com.bajicdusko:kotlin-fragment-manager:1.0.3'
 
     implementation 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     kapt 'com.jakewharton:butterknife-compiler:8.5.1'
 
     implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
 
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
     kapt 'com.google.dagger:dagger-compiler:2.11'
 
-    annotationProcessor 'org.parceler:parceler:1.1.8'
     kapt 'org.parceler:parceler:1.1.8'
 
-    implementation project(':presenter')
-    implementation 'com.android.support:support-v4:25.3.1'
+    implementation 'com.android.support:support-v4:25.4.0'
 
     implementation('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
         transitive = true
     }
-}
 
-kapt {
-    generateStubs = true
+    api project(':presenter')
 }

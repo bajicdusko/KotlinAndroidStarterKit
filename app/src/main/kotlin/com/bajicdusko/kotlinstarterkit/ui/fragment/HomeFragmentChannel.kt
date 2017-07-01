@@ -1,6 +1,6 @@
 package com.bajicdusko.kotlinstarterkit.ui.fragment
 
-import com.bajicdusko.fragmentmanager.FragmentChannel
+import com.bajicdusko.kotlinfragmentmanager.FragmentChannel
 
 /**
  * Created by Dusko Bajic on 15.06.17.

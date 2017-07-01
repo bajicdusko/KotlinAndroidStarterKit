@@ -1,7 +1,5 @@
 package com.bajicdusko.kotlinstarterkit.domain.model
 
-import com.bajicdusko.kotlinstarterkit.domain.EMPTY_STRING
-
 /**
  * Created by Dusko Bajic on 09.06.17.
  * GitHub @bajicdusko

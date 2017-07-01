@@ -23,6 +23,6 @@ interface ActivityComponent {
     }
 
     fun inject(homeActivity: HomeActivity)
-    fun inject(questionsFragment: QuestionsFragment)
     fun inject(loginFragment: LoginFragment)
+    fun inject(questionsFragment: QuestionsFragment)
 }

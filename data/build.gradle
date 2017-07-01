@@ -1,9 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
-kapt {
-    generateStubs = true
-}
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 25
@@ -50,8 +47,9 @@ android {
             minifyEnabled false
         }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+            zipAlignEnabled true
+            consumerProguardFile("proguard-rules.pro")
         }
     }
 
@@ -59,30 +57,29 @@ android {
 }
 
 dependencies {
-    api fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestApi('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    api 'com.android.support:appcompat-v7:25.3.1'
-    testApi 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:25.4.0'
+    testImplementation 'junit:junit:4.12'
 
-    api 'com.google.dagger:dagger:2.11'
+    implementation 'com.google.dagger:dagger:2.11'
     kapt 'com.google.dagger:dagger-compiler:2.11'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
 
     api 'com.google.code.gson:gson:2.8.0'
-    api 'com.squareup.retrofit2:retrofit:2.2.0'
-    api 'com.squareup.retrofit2:converter-gson:2.2.0'
-    api 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
-    api 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.2.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
 
-    api 'org.parceler:parceler-api:1.1.8'
-    annotationProcessor 'org.parceler:parceler:1.1.8'
+    implementation 'org.parceler:parceler-api:1.1.8'
+    kapt 'org.parceler:parceler:1.1.8'
 
     api 'com.jakewharton.timber:timber:4.5.1'
 
-    api 'org.mockito:mockito-core:2.7.22'
-    api 'org.mockito:mockito-android:2.7.22'
+    implementation 'org.mockito:mockito-core:2.7.22'
+    implementation 'org.mockito:mockito-android:2.7.22'
 
     api project(':domain')
 }

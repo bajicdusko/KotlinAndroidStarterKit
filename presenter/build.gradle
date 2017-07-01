@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 25
@@ -57,19 +57,14 @@ android {
 }
 
 dependencies {
-    api fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestApi('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    api 'com.android.support:appcompat-v7:25.3.1'
-    testApi 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:25.4.0'
+    testImplementation 'junit:junit:4.12'
 
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
     kapt 'com.google.dagger:dagger-compiler:2.11'
 
     api project(':data')
-}
-
-kapt {
-    generateStubs = true
 }

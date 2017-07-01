@@ -27,7 +27,9 @@ class HomeActivity : BaseActivity(), HomePresenter.View, HomeFragmentChannel {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         homePresenter.view = this
-        homePresenter.init()
+        if (savedInstanceState == null) {
+            homePresenter.init()
+        }
     }
 
     override fun setToolbarTitle(titleId: Int) {

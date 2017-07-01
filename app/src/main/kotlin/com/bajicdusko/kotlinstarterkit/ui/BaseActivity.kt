@@ -2,7 +2,7 @@ package com.bajicdusko.kotlinstarterkit.ui
 
 import android.os.Bundle
 import butterknife.ButterKnife
-import com.bajicdusko.fragmentmanager.SFMActivity
+import com.bajicdusko.kotlinfragmentmanager.SFMActivity
 import com.bajicdusko.kotlinstarterkit.MyApplication
 
 /**

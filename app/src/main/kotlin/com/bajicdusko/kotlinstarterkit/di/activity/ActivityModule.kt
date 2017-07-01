@@ -18,7 +18,7 @@ import javax.inject.Named
 @Module(includes = arrayOf(PresenterModule::class), subcomponents = arrayOf(AdapterComponent::class))
 class ActivityModule(private val baseActivity: BaseActivity) {
 
-    @Provides @Named(DIConstants.ACTIVITY) fun provideActivityContext(): Context = baseActivity
+    @Provides @Named(DIConstants.ACTIVITY) fun provideActivityContext(): Context = baseActivity as Context
 
     @Provides fun provideLayoutInflater(): LayoutInflater = baseActivity.layoutInflater
 }

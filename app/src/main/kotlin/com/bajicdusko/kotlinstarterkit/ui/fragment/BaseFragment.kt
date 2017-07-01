@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import butterknife.ButterKnife
-import com.bajicdusko.fragmentmanager.SFMFragment
+import com.bajicdusko.kotlinfragmentmanager.SFMFragment
 import com.bajicdusko.kotlinstarterkit.data.getErrorMessage
 import com.bajicdusko.kotlinstarterkit.ui.BaseActivity
 import com.bajicdusko.kotlinstarterkit.ui.rxDispose
