@@ -91,11 +91,9 @@ fun OwnerData.transform() = with(this, {
 
 
 fun Throwable.getErrorMessage(): String? {
-    if (this is ApiException) {
-        return exceptionMessage
-    } else if (this is CompositeException) {
-        return exceptions[0].message
-    } else {
-        return message
-    }
+  return when {
+    this is ApiException -> exceptionMessage
+    this is CompositeException -> exceptions[0].message
+    else -> message
+  }
 }
