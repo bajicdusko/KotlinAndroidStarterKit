@@ -14,43 +14,43 @@ import javax.inject.Inject
  */
 class HomeActivity : BaseActivity(), HomePresenter.View, HomeFragmentChannel {
 
-    @Inject lateinit var homePresenter: HomePresenter
+  @Inject lateinit var homePresenter: HomePresenter
 
-    override fun getFrameLayoutContainerId(): Int = R.id.activity_home_fl_fragment_container
+  override fun getFrameLayoutContainerId(): Int = R.id.activity_home_fl_fragment_container
 
-    override fun getLayoutId(): Int = R.layout.activity_home
+  override fun getLayoutId(): Int = R.layout.activity_home
 
-    override fun inject() {
-        injector.inject(this)
+  override fun inject() {
+    injector.inject(this)
+  }
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    homePresenter.view = this
+    if (savedInstanceState == null) {
+      homePresenter.init()
     }
+  }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        homePresenter.view = this
-        if (savedInstanceState == null) {
-            homePresenter.init()
-        }
-    }
+  override fun setToolbarTitle(titleId: Int) {
+    supportActionBar?.title = getString(titleId)
+  }
 
-    override fun setToolbarTitle(titleId: Int) {
-        supportActionBar?.title = getString(titleId)
-    }
+  override fun showHome() {
+    simpleFragmentManager.popUp()
+    simpleFragmentManager.replaceFragment(QuestionsFragment.newInstance())
+  }
 
-    override fun showHome() {
-        simpleFragmentManager.popUp()
-        simpleFragmentManager.replaceFragment(QuestionsFragment.newInstance())
-    }
+  override fun showLogin() {
+    simpleFragmentManager.replaceFragment(LoginFragment.newInstance())
+  }
 
-    override fun showLogin() {
-        simpleFragmentManager.replaceFragment(LoginFragment.newInstance())
-    }
+  override fun dispose() {
+    homePresenter.dispose()
+  }
 
-    override fun dispose() {
-        homePresenter.dispose()
-    }
-
-    override fun restore() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+  override fun restore() {
+    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+  }
 }
 

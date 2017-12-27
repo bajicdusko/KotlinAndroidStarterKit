@@ -13,16 +13,16 @@ import dagger.Subcomponent
 @Subcomponent(modules = arrayOf(ActivityModule::class))
 interface ActivityComponent {
 
-    fun adapterBuilder(): AdapterComponent.Builder
+  fun adapterBuilder(): AdapterComponent.Builder
 
-    @Subcomponent.Builder
-    interface Builder {
+  @Subcomponent.Builder
+  interface Builder {
 
-        fun activityModule(activityModule: ActivityModule): Builder
-        fun build(): ActivityComponent
-    }
+    fun activityModule(activityModule: ActivityModule): Builder
+    fun build(): ActivityComponent
+  }
 
-    fun inject(homeActivity: HomeActivity)
-    fun inject(loginFragment: LoginFragment)
-    fun inject(questionsFragment: QuestionsFragment)
+  fun inject(homeActivity: HomeActivity)
+  fun inject(loginFragment: LoginFragment)
+  fun inject(questionsFragment: QuestionsFragment)
 }

@@ -7,8 +7,8 @@ import com.google.gson.annotations.SerializedName
  * GitHub @bajicdusko
  */
 data class OwnerData(
-        val reputation: Int,
-        val userId: Long,
-        @SerializedName("profile_image") val avatar: String,
-        val displayName: String,
-        @SerializedName("link") val profileUrl: String)
+    val reputation: Int,
+    val userId: Long,
+    @SerializedName("profile_image") val avatar: String,
+    val displayName: String,
+    @SerializedName("link") val profileUrl: String)

@@ -11,7 +11,7 @@ import javax.inject.Inject
  */
 class GetQuestions @Inject constructor() : UseCase<List<SOQuestion?>, String> {
 
-    @Inject lateinit var questionsRepository: QuestionRepository
+  @Inject lateinit var questionsRepository: QuestionRepository
 
-    override fun execute(tag: String): Single<List<SOQuestion?>> = questionsRepository.getQuestionsByTag(tag)
+  override fun execute(tag: String): Single<List<SOQuestion?>> = questionsRepository.getQuestionsByTag(tag)
 }

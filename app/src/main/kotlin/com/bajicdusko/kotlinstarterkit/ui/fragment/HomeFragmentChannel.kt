@@ -7,5 +7,5 @@ import com.bajicdusko.kotlinfragmentmanager.FragmentChannel
  * GitHub @bajicdusko
  */
 interface HomeFragmentChannel : FragmentChannel {
-    fun showHome()
+  fun showHome()
 }

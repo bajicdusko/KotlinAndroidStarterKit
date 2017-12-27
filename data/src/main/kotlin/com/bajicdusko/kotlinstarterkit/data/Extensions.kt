@@ -36,57 +36,57 @@ fun SharedPreferences.save(key: String, value: Int) = save { putInt(key, value) 
 fun SharedPreferences.save(key: String, value: Long) = save { putLong(key, value) }
 fun SharedPreferences.save(key: String, value: Boolean) = save { putBoolean(key, value) }
 fun SharedPreferences.save(key: String, value: Any, gson: Gson) = save {
-    var stringValue = gson.toJson(value)
-    putString(key, stringValue)
+  var stringValue = gson.toJson(value)
+  putString(key, stringValue)
 }
 
 inline fun SharedPreferences.save(body: SharedPreferences.Editor.() -> Unit) {
-    val editor = this.edit()
-    editor.body()
-    editor.apply()
+  val editor = this.edit()
+  editor.body()
+  editor.apply()
 }
 
 /**
  * Mapper extension functions
  */
 fun SOQuestion.transform() = with(this, {
-    SOQuestionData(
-            tags?.toList(),
-            owner.transform(),
-            isAnswered,
-            viewCount,
-            answerCount,
-            score,
-            lastActivityDate,
-            lastEditDate,
-            creationDate,
-            questionId,
-            questionUrl,
-            title)
+  SOQuestionData(
+      tags?.toList(),
+      owner.transform(),
+      isAnswered,
+      viewCount,
+      answerCount,
+      score,
+      lastActivityDate,
+      lastEditDate,
+      creationDate,
+      questionId,
+      questionUrl,
+      title)
 })
 
 fun SOQuestionData.transform() = with(this, {
-    SOQuestion(
-            tags?.toMutableList(),
-            ownerData.transform(),
-            isAnswered,
-            viewCount,
-            answerCount,
-            score,
-            lastActivityDate,
-            lastEditDate,
-            creationDate,
-            questionId,
-            questionUrl,
-            title)
+  SOQuestion(
+      tags?.toMutableList(),
+      ownerData.transform(),
+      isAnswered,
+      viewCount,
+      answerCount,
+      score,
+      lastActivityDate,
+      lastEditDate,
+      creationDate,
+      questionId,
+      questionUrl,
+      title)
 })
 
 fun Owner.transform() = with(this, {
-    OwnerData(reputation, userId, avatar, displayName, profileUrl)
+  OwnerData(reputation, userId, avatar, displayName, profileUrl)
 })
 
 fun OwnerData.transform() = with(this, {
-    Owner(reputation, userId, avatar, displayName, profileUrl)
+  Owner(reputation, userId, avatar, displayName, profileUrl)
 })
 
 

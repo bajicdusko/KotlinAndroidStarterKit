@@ -8,5 +8,5 @@ import com.google.gson.annotations.SerializedName
  * GitHub @bajicdusko
  */
 data class SOQuestionWrapper(
-        @SerializedName("items") val questions: List<SOQuestionData>
+    @SerializedName("items") val questions: List<SOQuestionData>
 )

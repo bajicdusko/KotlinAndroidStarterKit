@@ -12,5 +12,8 @@ import javax.inject.Singleton
 @Module(subcomponents = arrayOf(ActivityComponent::class))
 class ApplicationModule(val app: MyApplication) {
 
-    @Singleton @Provides @Named(DIConstants.APPLICATION) fun provideAppContext() = app
+  @Singleton
+  @Provides
+  @Named(DIConstants.APPLICATION)
+  fun provideAppContext() = app
 }

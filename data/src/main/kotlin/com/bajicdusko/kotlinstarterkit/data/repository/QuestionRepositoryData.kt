@@ -16,11 +16,11 @@ import io.reactivex.Single
 
 class QuestionRepositoryData(val questionsApi: QuestionsApi) : QuestionRepository {
 
-    override fun getQuestionsByTag(tag: String): Single<List<SOQuestion?>> {
-        return questionsApi.get(DEFAULT_PAGE, DEFAULT_PAGE_SIZE, tag)
-                .map { it.questions }
-                .flatMap { if (it.isNotEmpty()) Flowable.fromIterable(it) else Flowable.empty() }
-                .map { it.transform() }
-                .toList()
-    }
+  override fun getQuestionsByTag(tag: String): Single<List<SOQuestion?>> {
+    return questionsApi.get(DEFAULT_PAGE, DEFAULT_PAGE_SIZE, tag)
+        .map { it.questions }
+        .flatMap { if (it.isNotEmpty()) Flowable.fromIterable(it) else Flowable.empty() }
+        .map { it.transform() }
+        .toList()
+  }
 }

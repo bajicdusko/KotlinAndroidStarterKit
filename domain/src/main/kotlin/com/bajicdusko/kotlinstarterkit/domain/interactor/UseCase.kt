@@ -8,5 +8,5 @@ import io.reactivex.Single
  */
 interface UseCase<M, P> {
 
-    fun execute(tag: P): Single<M>
+  fun execute(tag: P): Single<M>
 }

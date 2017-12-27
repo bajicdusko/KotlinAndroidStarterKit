@@ -3,13 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion rootProject.ext.sdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.bajicdusko.kotlinstarterkit"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion rootProject.ext.sdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -83,24 +83,24 @@ dependencies {
     androidTestApi('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:appcompat-v7:26.0.1'
-    implementation 'com.android.support:support-v4:26.0.1'
-    implementation 'com.android.support:design:26.0.1'
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:support-v4:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
 
-    implementation 'com.bajicdusko:kotlin-fragment-manager:1.0.4'
+    implementation 'com.bajicdusko:kotlin-fragment-manager:1.0.8'
 
-    implementation 'com.jakewharton:butterknife:8.6.0'
-    kapt 'com.jakewharton:butterknife-compiler:8.6.0'
+    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
+    kapt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
     implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
 
-    kapt 'com.google.dagger:dagger-compiler:2.11'
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
     kapt 'org.parceler:parceler:1.1.9'
 
-    implementation 'com.android.support:support-v4:26.0.1'
+    implementation "com.android.support:support-v4:$supportVersion"
 
     implementation('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
         transitive = true

@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.bajicdusko.kotlinstarterkit.domain.model.SOQuestion
 import com.bajicdusko.kotlinstarterkit.presenter.Presenter
 import io.reactivex.disposables.CompositeDisposable
-import java.util.*
+import java.util.ArrayList
 import javax.inject.Inject
 
 /**
@@ -13,33 +13,33 @@ import javax.inject.Inject
  */
 class QuestionsAdapterPresenter @Inject constructor() : Presenter {
 
-    private var questions: List<SOQuestion?> = ArrayList()
-    var view: View? = null
+  private var questions: List<SOQuestion?> = ArrayList()
+  var view: View? = null
 
-    override var disposables: CompositeDisposable = CompositeDisposable()
+  override var disposables: CompositeDisposable = CompositeDisposable()
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+  override fun onSaveInstanceState(outState: Bundle?) {
 
+  }
+
+  override fun onRestoreInstanceState(savedInstanceState: Bundle?) {}
+
+  override fun restore() {
+    view?.notifyAdapter()
+  }
+
+  fun onDataChange(list: List<SOQuestion?>?) {
+    if (list != null) {
+      questions = list
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {}
+    view?.notifyAdapter()
+  }
 
-    override fun restore() {
-        view?.notifyAdapter()
-    }
+  interface View : Presenter.View {
+    fun notifyAdapter()
+  }
 
-    fun onDataChange(list: List<SOQuestion?>?) {
-        if (list != null) {
-            questions = list
-        }
-
-        view?.notifyAdapter()
-    }
-
-    interface View : Presenter.View {
-        fun notifyAdapter()
-    }
-
-    fun getCount(): Int = questions.size
-    fun getQuestion(position: Int) = questions[position]
+  fun getCount(): Int = questions.size
+  fun getQuestion(position: Int) = questions[position]
 }

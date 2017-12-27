@@ -17,9 +17,11 @@ import dagger.Provides
 @Module
 class RepositoryModule {
 
-    @Provides fun providesCacheRepository(sharedPreferences: SharedPreferences, gson: Gson): CacheRepository =
-            CacheRepositoryData(sharedPreferences, gson)
+  @Provides
+  fun providesCacheRepository(sharedPreferences: SharedPreferences, gson: Gson): CacheRepository =
+      CacheRepositoryData(sharedPreferences, gson)
 
-    @Provides fun providesQuestionsRepository(questionsApi: QuestionsApi): QuestionRepository =
-            QuestionRepositoryData(questionsApi)
+  @Provides
+  fun providesQuestionsRepository(questionsApi: QuestionsApi): QuestionRepository =
+      QuestionRepositoryData(questionsApi)
 }

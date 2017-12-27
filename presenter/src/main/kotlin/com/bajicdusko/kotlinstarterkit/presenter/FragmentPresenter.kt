@@ -6,7 +6,7 @@ package com.bajicdusko.kotlinstarterkit.presenter
  */
 interface FragmentPresenter : Presenter {
 
-    interface View : Presenter.View {
-        fun setTitle(): Unit?
-    }
+  interface View : Presenter.View {
+    fun setTitle(): Unit?
+  }
 }

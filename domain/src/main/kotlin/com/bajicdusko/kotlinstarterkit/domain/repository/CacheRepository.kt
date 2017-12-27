@@ -6,11 +6,11 @@ package com.bajicdusko.kotlinstarterkit.domain.repository
  */
 interface CacheRepository {
 
-    var username: String
-    var password: String
+  var username: String
+  var password: String
 
-    fun isSidebarShown(): Boolean
-    fun isLoggedIn(): Boolean
+  fun isSidebarShown(): Boolean
+  fun isLoggedIn(): Boolean
 
-    fun clear()
+  fun clear()
 }

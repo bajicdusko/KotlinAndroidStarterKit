@@ -9,18 +9,18 @@ import javax.inject.Inject
  */
 class QuestionViewHolderPresenter @Inject constructor() : ViewHolderPresenter {
 
-    var position: Int = 0
-    var adapterPresenter: QuestionsAdapterPresenter? = null
-    var view: View? = null
+  var position: Int = 0
+  var adapterPresenter: QuestionsAdapterPresenter? = null
+  var view: View? = null
 
-    fun bind() {
-        var question = adapterPresenter?.getQuestion(position)
-        view?.setTitle(question?.title)
-        view?.setQuestionUrl(question?.questionUrl)
-    }
+  fun bind() {
+    var question = adapterPresenter?.getQuestion(position)
+    view?.setTitle(question?.title)
+    view?.setQuestionUrl(question?.questionUrl)
+  }
 
-    interface View : ViewHolderPresenter.View {
-        fun setTitle(title: String?)
-        fun setQuestionUrl(questionUrl: String?)
-    }
+  interface View : ViewHolderPresenter.View {
+    fun setTitle(title: String?)
+    fun setQuestionUrl(questionUrl: String?)
+  }
 }

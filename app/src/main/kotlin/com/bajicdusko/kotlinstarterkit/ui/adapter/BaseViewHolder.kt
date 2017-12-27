@@ -9,7 +9,7 @@ import butterknife.ButterKnife
  * GitHub @bajicdusko
  */
 abstract class BaseViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    init {
-        ButterKnife.bind(this, view)
-    }
+  init {
+    ButterKnife.bind(this, view)
+  }
 }

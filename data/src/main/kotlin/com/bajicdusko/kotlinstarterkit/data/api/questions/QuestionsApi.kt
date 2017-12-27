@@ -11,12 +11,13 @@ import retrofit2.http.Query
  */
 interface QuestionsApi {
 
-    companion object {
-        const val QUESTIONS = "questions"
-        const val SORTING: String = "?order=desc&sort=activity&site=stackoverflow"
-    }
+  companion object {
+    const val QUESTIONS = "questions"
+    const val SORTING: String = "?order=desc&sort=activity&site=stackoverflow"
+  }
 
-    @GET(QUESTIONS + SORTING) fun get(@Query("page") page: Int,
-                                      @Query("pagesize") pageSize: Int,
-                                      @Query("tagged") tag: String): Flowable<SOQuestionWrapper>
+  @GET(QUESTIONS + SORTING)
+  fun get(@Query("page") page: Int,
+      @Query("pagesize") pageSize: Int,
+      @Query("tagged") tag: String): Flowable<SOQuestionWrapper>
 }

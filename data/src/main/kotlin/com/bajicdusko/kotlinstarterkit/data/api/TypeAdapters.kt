@@ -14,47 +14,47 @@ import org.joda.time.DateTime
  * GitHub @bajicdusko
  */
 class BooleanTypeAdapter : TypeAdapter<Boolean>() {
-    override fun write(out: JsonWriter?, value: Boolean?) {
-        out?.value(value) ?: out?.nullValue()
-    }
+  override fun write(out: JsonWriter?, value: Boolean?) {
+    out?.value(value) ?: out?.nullValue()
+  }
 
-    override fun read(jsonReader: JsonReader?): Boolean {
-        val jsonToken = jsonReader?.peek()
-        return when (jsonToken) {
-            JsonToken.BOOLEAN -> jsonReader.nextBoolean()
-            JsonToken.NULL -> {
-                jsonReader.nextNull()
-                return false
-            }
-            JsonToken.NUMBER -> jsonReader.nextInt() != 0
-            JsonToken.STRING -> jsonReader.nextString().toBoolean()
-            else -> {
-                throw IllegalStateException("Value could not be converted to Boolean. Token: $jsonToken.toString()")
-            }
-        }
+  override fun read(jsonReader: JsonReader?): Boolean {
+    val jsonToken = jsonReader?.peek()
+    return when (jsonToken) {
+      JsonToken.BOOLEAN -> jsonReader.nextBoolean()
+      JsonToken.NULL -> {
+        jsonReader.nextNull()
+        return false
+      }
+      JsonToken.NUMBER -> jsonReader.nextInt() != 0
+      JsonToken.STRING -> jsonReader.nextString().toBoolean()
+      else -> {
+        throw IllegalStateException("Value could not be converted to Boolean. Token: $jsonToken.toString()")
+      }
     }
+  }
 }
 
 class DateTimeAdapter : TypeAdapter<DateTime>() {
-    override fun write(out: JsonWriter?, value: DateTime?) {
-        out?.nullValue() ?: out?.value(value?.toDefaultString())
-    }
+  override fun write(out: JsonWriter?, value: DateTime?) {
+    out?.nullValue() ?: out?.value(value?.toDefaultString())
+  }
 
-    override fun read(`in`: JsonReader?): DateTime {
-        var jsonToken = `in`?.peek()
-        if (jsonToken == JsonToken.NUMBER) {
-            var millis = `in`?.nextLong()
-            if (millis != null) {
-                try {
-                    return millis.toDateTimeFromMillis(1000) //nanos used used on StackOverflow
-                } catch(e: Exception) {
-                    throw DateParsingException(millis, e)
-                }
-            } else {
-                throw DateParsingException("Error occurred on date reading from the JSON.")
-            }
+  override fun read(`in`: JsonReader?): DateTime {
+    var jsonToken = `in`?.peek()
+    if (jsonToken == JsonToken.NUMBER) {
+      var millis = `in`?.nextLong()
+      if (millis != null) {
+        try {
+          return millis.toDateTimeFromMillis(1000) //nanos used used on StackOverflow
+        } catch (e: Exception) {
+          throw DateParsingException(millis, e)
         }
-
-        throw DateParsingException("Expected a number value. Instead $jsonToken used.")
+      } else {
+        throw DateParsingException("Error occurred on date reading from the JSON.")
+      }
     }
+
+    throw DateParsingException("Expected a number value. Instead $jsonToken used.")
+  }
 }

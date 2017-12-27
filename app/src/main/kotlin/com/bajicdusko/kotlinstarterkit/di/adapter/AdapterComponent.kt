@@ -12,12 +12,12 @@ import dagger.Subcomponent
 @Subcomponent(modules = arrayOf(AdapterModule::class))
 interface AdapterComponent {
 
-    @Subcomponent.Builder
-    interface Builder{
-        fun adapterModule(adapterModule: AdapterModule): Builder
-        fun build(): AdapterComponent
-    }
+  @Subcomponent.Builder
+  interface Builder {
+    fun adapterModule(adapterModule: AdapterModule): Builder
+    fun build(): AdapterComponent
+  }
 
-    fun inject(questionsAdapter: QuestionsAdapter)
-    fun inject(questionViewHolder: QuestionViewHolder)
+  fun inject(questionsAdapter: QuestionsAdapter)
+  fun inject(questionViewHolder: QuestionViewHolder)
 }

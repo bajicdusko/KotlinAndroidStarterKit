@@ -11,15 +11,15 @@ import com.bajicdusko.kotlinstarterkit.MyApplication
  */
 abstract class BaseActivity : SFMActivity() {
 
-    abstract fun inject()
-    abstract fun getLayoutId(): Int
+  abstract fun inject()
+  abstract fun getLayoutId(): Int
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(getLayoutId())
-        inject()
-        ButterKnife.bind(this)
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(getLayoutId())
+    inject()
+    ButterKnife.bind(this)
+  }
 
-    val injector by lazy { (application as MyApplication).activityComponent(this) }
+  val injector by lazy { (application as MyApplication).activityComponent(this) }
 }

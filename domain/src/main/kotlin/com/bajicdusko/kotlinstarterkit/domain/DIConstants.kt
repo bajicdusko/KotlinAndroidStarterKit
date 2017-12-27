@@ -7,8 +7,8 @@ package com.bajicdusko.kotlinstarterkit.domain
 
 class DIConstants {
 
-    companion object{
-        const val ACTIVITY = "activity"
-        const val APPLICATION = "application"
-    }
+  companion object {
+    const val ACTIVITY = "activity"
+    const val APPLICATION = "application"
+  }
 }

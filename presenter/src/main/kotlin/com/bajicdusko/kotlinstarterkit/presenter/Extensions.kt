@@ -8,18 +8,18 @@ import io.reactivex.disposables.Disposable
  * GitHub @bajicdusko
  */
 fun Presenter.initDisposables() {
-    if(disposables.isDisposed){
-        disposables = CompositeDisposable()
-    }
+  if (disposables.isDisposed) {
+    disposables = CompositeDisposable()
+  }
 }
 
-fun Presenter.rxDispose(){
-    if(!disposables.isDisposed){
-        disposables.dispose()
-    }
+fun Presenter.rxDispose() {
+  if (!disposables.isDisposed) {
+    disposables.dispose()
+  }
 }
 
-inline fun Presenter.rxTransaction(subscription: () -> Disposable){
-    initDisposables()
-    disposables.add(subscription())
+inline fun Presenter.rxTransaction(subscription: () -> Disposable) {
+  initDisposables()
+  disposables.add(subscription())
 }

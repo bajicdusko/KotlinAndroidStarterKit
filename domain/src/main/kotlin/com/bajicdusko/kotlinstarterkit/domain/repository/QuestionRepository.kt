@@ -9,5 +9,5 @@ import io.reactivex.Single
  */
 interface QuestionRepository {
 
-    fun getQuestionsByTag(tag: String): Single<List<SOQuestion?>>
+  fun getQuestionsByTag(tag: String): Single<List<SOQuestion?>>
 }

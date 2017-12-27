@@ -6,5 +6,5 @@ package com.bajicdusko.kotlinstarterkit.presenter
  */
 interface ViewHolderPresenter {
 
-    interface View {}
+  interface View {}
 }

@@ -14,5 +14,7 @@ import javax.inject.Singleton
 @Singleton
 class AndroidModule(val context: Context) {
 
-    @Provides @Singleton fun providesSharedPreferences() = context.getSharedPreferences("private_pref", Context.MODE_PRIVATE)
+  @Provides
+  @Singleton
+  fun providesSharedPreferences() = context.getSharedPreferences("private_pref", Context.MODE_PRIVATE)
 }

@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">KotlinStarterkit</string>
+  <string name="app_name">KotlinStarterkit</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="login">Login</string>
-    <string name="questions">Questions</string>
-    <string name="any_username">Any username</string>
-    <string name="any_password">Any password</string>
-    <string name="field_cannot_be_empty">Field cannot be empty</string>
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="login">Login</string>
+  <string name="questions">Questions</string>
+  <string name="any_username">Any username</string>
+  <string name="any_password">Any password</string>
+  <string name="field_cannot_be_empty">Field cannot be empty</string>
 </resources>

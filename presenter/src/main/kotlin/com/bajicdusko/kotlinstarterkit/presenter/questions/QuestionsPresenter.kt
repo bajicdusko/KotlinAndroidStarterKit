@@ -13,29 +13,29 @@ import javax.inject.Inject
 
 class QuestionsPresenter @Inject constructor() : FragmentPresenter {
 
-    @Inject lateinit var getQuestions: GetQuestions
+  @Inject lateinit var getQuestions: GetQuestions
 
-    override var disposables: CompositeDisposable = CompositeDisposable()
+  override var disposables: CompositeDisposable = CompositeDisposable()
 
-    var view: View? = null
+  var view: View? = null
 
-    fun loadQuestions() {
-        rxTransaction({
-            getQuestions.execute(ANDROID_TAG)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ view?.showData(it) }, { view?.handleError(it, "On Questions Loading") })
-        })
-    }
+  fun loadQuestions() {
+    rxTransaction({
+      getQuestions.execute(ANDROID_TAG)
+          .subscribeOn(Schedulers.io())
+          .observeOn(AndroidSchedulers.mainThread())
+          .subscribe({ view?.showData(it) }, { view?.handleError(it, "On Questions Loading") })
+    })
+  }
 
-    override fun onSaveInstanceState(outState: Bundle?) {}
+  override fun onSaveInstanceState(outState: Bundle?) {}
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {}
+  override fun onRestoreInstanceState(savedInstanceState: Bundle?) {}
 
-    override fun restore() {}
+  override fun restore() {}
 
-    interface View : FragmentPresenter.View {
-        fun showData(list: List<SOQuestion?>?)
-        fun handleError(throwable: Throwable?, location: String?)
-    }
+  interface View : FragmentPresenter.View {
+    fun showData(list: List<SOQuestion?>?)
+    fun handleError(throwable: Throwable?, location: String?)
+  }
 }

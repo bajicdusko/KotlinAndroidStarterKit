@@ -11,21 +11,21 @@ import javax.inject.Inject
  */
 class LoginPresenter @Inject constructor() : FragmentPresenter {
 
-    var view: View? = null
+  var view: View? = null
 
-    override var disposables: CompositeDisposable = CompositeDisposable()
+  override var disposables: CompositeDisposable = CompositeDisposable()
 
-    override fun onSaveInstanceState(outState: Bundle?) {}
+  override fun onSaveInstanceState(outState: Bundle?) {}
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {}
+  override fun onRestoreInstanceState(savedInstanceState: Bundle?) {}
 
-    override fun restore() {}
+  override fun restore() {}
 
-    interface View : FragmentPresenter.View {
-        fun showHome()
-    }
+  interface View : FragmentPresenter.View {
+    fun showHome()
+  }
 
-    fun onLogin() {
-        view?.showHome()
-    }
+  fun onLogin() {
+    view?.showHome()
+  }
 }

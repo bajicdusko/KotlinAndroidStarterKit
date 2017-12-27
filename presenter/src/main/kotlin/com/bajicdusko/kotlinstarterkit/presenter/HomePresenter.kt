@@ -6,22 +6,22 @@ import javax.inject.Inject
 
 class HomePresenter @Inject constructor() : Presenter {
 
-    override var disposables: CompositeDisposable = CompositeDisposable()
-    var view: View? = null
+  override var disposables: CompositeDisposable = CompositeDisposable()
+  var view: View? = null
 
-    override fun onSaveInstanceState(outState: Bundle?) { }
+  override fun onSaveInstanceState(outState: Bundle?) {}
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) { }
+  override fun onRestoreInstanceState(savedInstanceState: Bundle?) {}
 
-    override fun restore() { }
+  override fun restore() {}
 
-    interface View : Presenter.View {
-        fun showLogin()
-    }
+  interface View : Presenter.View {
+    fun showLogin()
+  }
 
-    fun init() {
+  fun init() {
 //        TODO("Do something smart here")
-        view?.showLogin()
-    }
+    view?.showLogin()
+  }
 }
 
