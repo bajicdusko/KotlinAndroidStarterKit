@@ -43,11 +43,12 @@ class MyApplication : Application() {
       appComponent.activityBuilder().activityModule(ActivityModule(baseActivity)).build()
 
   class ExtendedDebugTree : Timber.DebugTree() {
-    override fun log(priority: Int, tag: String?, message: String?, t: Throwable?) {
+    override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
       if (priority == Log.ERROR && t != null) {
         val exceptionMessage = t.getErrorMessage()
         if (exceptionMessage.isNotNullOrEmpty() && message.isNotNullOrEmpty()) {
-          super.log(priority, tag, "Exception message: $exceptionMessage - From code message: $message.", t)
+          super.log(priority, tag,
+              "Exception message: $exceptionMessage - From code message: $message.", t)
         } else if (exceptionMessage.isNotNullOrEmpty()) {
           super.log(priority, tag, "Exception message only: $exceptionMessage", t)
         } else {
@@ -60,7 +61,7 @@ class MyApplication : Application() {
   }
 
   class CrashReportingTree : Timber.Tree() {
-    override fun log(priority: Int, tag: String?, message: String?, t: Throwable?) {
+    override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
       if (priority == Log.ERROR && t != null) {
         val exceptionMessage = t.getErrorMessage()
         var logMessage: String? = null;

@@ -78,8 +78,8 @@ dependencies {
 
     api "com.jakewharton.timber:timber:$timberVersion"
 
-    implementation "org.mockito:mockito-core:$mockitoVersion"
-    implementation "org.mockito:mockito-android:$mockitoVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "org.mockito:mockito-android:$mockitoVersion"
 
     api project(':domain')
 }

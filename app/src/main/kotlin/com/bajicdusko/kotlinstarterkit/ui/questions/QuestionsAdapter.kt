@@ -34,14 +34,17 @@ class QuestionsAdapter(activityComponent: ActivityComponent) :
     notifyDataSetChanged()
   }
 
-  override fun onBindViewHolder(viewHolder: QuestionViewHolder?, position: Int) {
-    viewHolder?.questionViewHolderPresenter?.position = position
-    viewHolder?.questionViewHolderPresenter?.bind()
+  override fun onBindViewHolder(viewHolder: QuestionViewHolder, position: Int) {
+    viewHolder.questionViewHolderPresenter?.position = position
+    viewHolder.questionViewHolderPresenter?.bind()
   }
 
   override fun getItemCount(): Int = questionsAdapterPresenter.getCount()
 
-  override fun onCreateViewHolder(viewGroup: ViewGroup?, viewType: Int): QuestionViewHolder =
-      QuestionViewHolder(inflater.inflate(QuestionViewHolder.LAYOUT_ID, viewGroup, false), injector,
-          questionsAdapterPresenter)
+  override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): QuestionViewHolder =
+      QuestionViewHolder(
+          inflater.inflate(QuestionViewHolder.LAYOUT_ID, viewGroup, false),
+          injector,
+          questionsAdapterPresenter
+      )
 }
